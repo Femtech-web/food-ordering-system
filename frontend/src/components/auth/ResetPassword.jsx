@@ -2,7 +2,7 @@ import styled from "styled-components";
 import useResetPassword from "../../hooks/useResetPassword";
 import { ButtonPrimary } from "../Buttons";
 import { LoaderSpinner } from "../LoaderSpinner";
-import pizzaBackgroun from "../../img/pizza-background.jpg";
+import pizzaBackgroun from "../../img/empanadas-slide.jpg";
 import {
   FormCard,
   Form,
