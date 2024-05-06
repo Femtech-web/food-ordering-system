@@ -30,7 +30,7 @@ export default function useShoppingCart() {
 
       if (currentUser?.profileState !== "completed")
         return alert(
-          "Se require que complete su  perfil en la cuenta para poder realizar la orden"
+          "Se require que complete su  perfil en la cuenta para poder realizar la orden",
         );
 
       const orderSpecifications = cartProducts.map((product) => ({

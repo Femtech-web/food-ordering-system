@@ -62,7 +62,7 @@ export default function useUserOrdersPage({ closeNotification }) {
 
         let res = await fetch(
           `/api/orders/user/${currentUser._id}?${query}`,
-          setting
+          setting,
         );
         let json = await res.json();
 

@@ -72,7 +72,7 @@ export default function Footer() {
       <FooterWrapper>
         <FooterSection>
           <Logo src={logo} alt="logo"></Logo>
-          <p style={{lineHeight: "1.2rem"}}>
+          <p style={{ lineHeight: "1.2rem" }}>
             An Amazing place for a healthy meal and self-esteem.
           </p>
         </FooterSection>

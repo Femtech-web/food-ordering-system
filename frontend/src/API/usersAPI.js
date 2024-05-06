@@ -7,7 +7,7 @@ async function getUsers({ token, setAllUsers }) {
     const { json } = await GET(`${BASE_URL}/api/users`, token);
 
     setAllUsers(json);
-    localStorage.setItem('foodie-allUsers', JSON.stringify(json));
+    localStorage.setItem("foodie-allUsers", JSON.stringify(json));
   } catch (err) {
     console.log(err);
   }

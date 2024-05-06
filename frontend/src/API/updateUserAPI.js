@@ -15,7 +15,11 @@ async function uploadUserAPI({
   try {
     setFormIsLoading(true);
 
-    const { response, json } = await PUT(`${BASE_URL}/api/users/role/${id}`, info, token);
+    const { response, json } = await PUT(
+      `${BASE_URL}/api/users/role/${id}`,
+      info,
+      token,
+    );
 
     setFormIsLoading(false);
     if (response.status === 200) {
@@ -24,8 +28,7 @@ async function uploadUserAPI({
       setIsEditing(false);
     }
 
-    if (response.status === 403)
-      return alert("Administrator role is required" );
+    if (response.status === 403) return alert("Administrator role is required");
 
     setServerError(json.message);
   } catch (err) {

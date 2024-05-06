@@ -13,8 +13,7 @@ const newsletterSubscribtionAPI = async ({ info, setIsSuccessfullySend }) => {
         setIsSuccessfullySend(false);
       }, 3000);
     }
-    if (response.status === 500)
-      alert("Server error, please try again");
+    if (response.status === 500) alert("Server error, please try again");
   } catch (err) {
     console.log(err);
   }

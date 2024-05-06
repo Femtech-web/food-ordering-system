@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from "styled-components";
 import { useState } from "react";
-import defaultImage from "../../img/default-image.png";
+import defaultImage from "../../img/default-image.jpg";
 
 const Item = styled.article`
   display: flex;
@@ -12,7 +12,7 @@ const Item = styled.article`
   min-width: 250px;
   height: 300px;
   flex-flow: column;
-  over-flow: hidden;
+  overflow: hidden;
   padding: 20px;
   border: 1px solid #00000026;
   box-shadow: 1px 1px 5px #00000057;
@@ -23,19 +23,19 @@ const Description = styled.div`
   padding-bottom: 5px;
 `;
 const ProductLink = styled.h3`
-text-decoration:none;
-margin-bottom:2px;
+  text-decoration: none;
+  margin-bottom: 2px;
   color: #272727;
-letter-spacing:0;
+  letter-spacing: 0;
 
-line-height:35px;
-text-transform:capitalize ;
-transition: all 0.5s;
+  line-height: 35px;
+  text-transform: capitalize;
+  transition: all 0.5s;
   font-family: "Oswald", sans-serif;
   font-size: 25px;
-&:hover {
-      color: color: rgb(0 0 0 / 50%);
-}
+  &:hover {
+    color: rgb(0 0 0 / 50%);
+  }
 `;
 
 const Size = styled.small`

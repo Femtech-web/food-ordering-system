@@ -2,7 +2,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useStorage } from "../context/useStorage";
 
-
 const BASE_URL = import.meta.env.VITE_FETCH_BASE_URL;
 
 export default function useDashboardOrderDetails() {

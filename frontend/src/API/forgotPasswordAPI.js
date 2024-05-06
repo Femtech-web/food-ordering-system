@@ -11,7 +11,10 @@ async function forgotPasswordAPI({
   try {
     setIsFormLoading(true);
 
-    const { response, json } = await POST(`${BASE_URL}/api/auth/forgotPassword`, info);
+    const { response, json } = await POST(
+      `${BASE_URL}/api/auth/forgotPassword`,
+      info,
+    );
 
     setIsFormLoading(false);
 

@@ -14,7 +14,7 @@ import {
 } from "../account/UserOrdersPage";
 import { LoaderSpinner } from "../LoaderSpinner";
 import { NotFoundMessage } from "../menu/ProductsSection";
-import SectionTitle  from "../SectionTitle";
+import SectionTitle from "../SectionTitle";
 import { FiltersBoard } from "./DashboardProducts";
 import FilterOrderStateOptions from "../FilterOrderStateOptions";
 import SortOrdersOptions from "../SortOrdersOptions";
@@ -137,9 +137,7 @@ export default function DashboardOrders({ closeNotification }) {
       {isLoading && isFirstRender && <OrdersTableSkeleton />}
 
       {!isLoading && !isFirstRender && orders?.length === 0 && (
-        <NotFoundMessage>
-          No matches found, please try again!!
-        </NotFoundMessage>
+        <NotFoundMessage>No matches found, please try again!!</NotFoundMessage>
       )}
 
       {orders?.length !== 0 && (

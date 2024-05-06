@@ -155,7 +155,7 @@ function DashboardUsers() {
   const normalUsers = users?.filter((user) => user?.roles[0]?.name === "user");
   const adminsAndModerators = users?.filter(
     (user) =>
-      user?.roles[0]?.name === "admin" || user?.roles[0]?.name === "moderator"
+      user?.roles[0]?.name === "admin" || user?.roles[0]?.name === "moderator",
   );
 
   return (

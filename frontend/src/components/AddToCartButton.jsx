@@ -43,7 +43,7 @@ export default function AddToCartButton({ thisProductInfo }) {
       onClick={() =>
         handlerAddToCartAndAddToTotalCost(
           thisProductInfo,
-          parseInt(thisProductInfo?.price)
+          parseInt(thisProductInfo?.price),
         )
       }
     >

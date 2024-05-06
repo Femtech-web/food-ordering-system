@@ -97,7 +97,7 @@ export function UserNameInput({ register, errors, defaultValue }) {
         type="text"
         defaultValue={defaultValue || ""}
         data-testId="nameInput"
-        {...register('userName', {
+        {...register("userName", {
           required: "This field is required",
         })}
         style={{ borderColor: errors.userName && "#bf0000" }}
@@ -117,7 +117,7 @@ export function UserLastNameInput({ register, errors, defaultValue }) {
         data-testId="lastNameInput"
         defaultValue={defaultValue || ""}
         name="userLastName"
-        {...register('userLastName')}
+        {...register("userLastName")}
         style={{ borderColor: errors.userLastName && "#bf0000" }}
       />
     </Fragment>
@@ -134,9 +134,10 @@ export function UserEmailInput({ register, errors }) {
         placeholder="email..."
         name="userEmail"
         data-testId="emailInput"
-        {...register('userEmail', {
+        {...register("userEmail", {
           required: "This field is required",
-          pattern: /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/,
+          pattern:
+            /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/,
         })}
         style={{ borderColor: errors.userEmail && "#bf0000" }}
       />
@@ -159,7 +160,7 @@ export function UserPasswordInput({
         name={name}
         data-testId="passwordInput"
         autocomplete={false}
-        {...register('userPassword', {
+        {...register("userPassword", {
           required: "This field is required",
         })}
         style={{ borderColor: errors[name] && "#bf0000" }}

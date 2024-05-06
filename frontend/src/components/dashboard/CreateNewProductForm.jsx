@@ -186,10 +186,7 @@ export const Option = styled.option`
 `;
 export function CategoriesOptionsInput({ categories, defaultValue }) {
   return (
-    <OptionList
-      name="category"
-      defaultValue={defaultValue || categories[0]}
-    >
+    <OptionList name="category" defaultValue={defaultValue || categories[0]}>
       {categories?.map((cat) => (
         <Option key={cat?._id} value={cat?.name}>
           {cat?.name}
@@ -273,11 +270,7 @@ export function ImageUploader({ errors, isNotRequired }) {
         <ErrorMessage role="alert">*This field is required</ErrorMessage>
       )}
 
-      <DropZone
-        id="imgInput"
-        type="file"
-        name="img"
-      ></DropZone>
+      <DropZone id="imgInput" type="file" name="img"></DropZone>
     </Fragment>
   );
 }

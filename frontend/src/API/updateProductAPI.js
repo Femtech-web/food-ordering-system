@@ -15,7 +15,7 @@ async function updateProductAPI({
       `/api/products/${id}`,
       formData,
       token,
-      "formData"
+      "formData",
     );
     setFormIsLoading(false);
 

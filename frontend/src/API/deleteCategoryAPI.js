@@ -6,7 +6,7 @@ export default async function deleteCategoryAPI({ categorySelectId, token }) {
   try {
     const { response } = await DELETE(
       `${BASE_URL}/api/categories/${categorySelectId}`,
-      token
+      token,
     );
     if (response.status === 403 || response.status === 401) {
       alert("Administrator role is required");

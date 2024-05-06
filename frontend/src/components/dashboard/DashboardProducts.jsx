@@ -119,9 +119,7 @@ function DashboardProducts() {
       {isLoading && isFirstRender ? <ProductsSectionSkeleton /> : null}
 
       {!isLoading && products?.length === 0 ? (
-        <NotFoundMessage>
-          No matches found, please try again!!
-        </NotFoundMessage>
+        <NotFoundMessage>No matches found, please try again!!</NotFoundMessage>
       ) : (
         <StyledProductsSection isLoading={isLoading}>
           {products?.map((product) => (

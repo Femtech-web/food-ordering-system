@@ -11,7 +11,7 @@ async function resetPasswordAPI({
 
     const { response, json } = await POST(
       `/api/auth/resetPassword/${token}`,
-      info
+      info,
     );
 
     setIsFormLoading(false);

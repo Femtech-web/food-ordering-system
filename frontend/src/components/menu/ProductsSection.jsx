@@ -37,9 +37,7 @@ export default function ProductsSectionComponent({ isLoading, products }) {
   return (
     <ProductsSection>
       {!isLoading && products?.length === 0 ? (
-        <NotFoundMessage>
-          No matches found, please try again!!
-        </NotFoundMessage>
+        <NotFoundMessage>No matches found, please try again!!</NotFoundMessage>
       ) : (
         products?.map((product) => (
           <Item data-testid="productItem" key={product._id} item={product}>

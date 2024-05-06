@@ -88,7 +88,7 @@ const Textarea = styled.textarea`
   min-height: 250px;
   max-height: 250px;
   margin-bottom: 25px;
-  width: 95%
+  width: 95%;
 `;
 export const ErrorMessage = styled.small`
   color: #bf0000;
@@ -118,9 +118,9 @@ export default function ContactForm() {
             type="text"
             placeholder="Fullname"
             name="userName"
-            {...register("userName",{
+            {...register("userName", {
               required: "required",
-              pattern:  /^[A-Za-zñÑáÁéÉíÍóÓúÚÜü\s\w]+$/,
+              pattern: /^[A-Za-zñÑáÁéÉíÍóÓúÚÜü\s\w]+$/,
             })}
             style={{ borderColor: errors.userName && "#bf0000" }}
           />
@@ -131,9 +131,10 @@ export default function ContactForm() {
             type="email"
             placeholder="Email"
             name="userEmail"
-            {...register("userEmail",{
+            {...register("userEmail", {
               required: "required",
-              pattern: /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/,
+              pattern:
+                /^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$/,
             })}
             style={{ borderColor: errors.userEmail && "#bf0000" }}
           />
@@ -156,7 +157,7 @@ export default function ContactForm() {
           <Textarea
             placeholder="Message"
             name="userMessage"
-            {...register("userMessage",{
+            {...register("userMessage", {
               required: "required",
             })}
             style={{ borderColor: errors.userMessage && "#bf0000" }}
@@ -166,10 +167,10 @@ export default function ContactForm() {
       </FormSection>
       <InfoSection>
         <ContactTitle>Contact Us</ContactTitle>
-        <p style={{textAlign: 'left'}}>
-          Got questions or feedback? 
-          We&apos;re here to help! Reach out to us and let&apos;s connect. 
-          Your thoughts matter, and we&apos;re just a message away.
+        <p style={{ textAlign: "left" }}>
+          Got questions or feedback? We&apos;re here to help! Reach out to us
+          and let&apos;s connect. Your thoughts matter, and we&apos;re just a
+          message away.
         </p>
         <List>
           <ListItem>

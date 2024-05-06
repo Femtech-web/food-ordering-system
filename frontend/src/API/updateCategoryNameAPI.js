@@ -9,11 +9,11 @@ export default async function updateCategoryNameAPI({
   token,
 }) {
   try {
-    console.log(categorySelectId, info,  token);
+    console.log(categorySelectId, info, token);
     const { json } = await PUT(
       `${BASE_URL}/api/categories/${categorySelectId}`,
       info,
-      token
+      token,
     );
 
     if (json.category) {

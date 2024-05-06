@@ -125,7 +125,7 @@ export default function SingleCartProduct({ product }) {
           onClick={() =>
             deleteOfCartAndTotalCostHandler(
               product.info._id,
-              quantity * product.info.price
+              quantity * product.info.price,
             )
           }
         >

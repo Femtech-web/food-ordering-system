@@ -19,13 +19,13 @@ export default function useCategoriesForms() {
     e.preventDefault();
     e.stopPropagation();
     const confirmation = window.confirm(
-      "When deleting the category, all the products within it will be deleted, are you sure?"
+      "When deleting the category, all the products within it will be deleted, are you sure?",
     );
     const onSuccess = () => {
       setIsDeleteFormLoading(false);
       setIsSuccessfullySend(true);
       setAllCategories(
-        categories.filter((category) => category._id !== categorySelectId)
+        categories.filter((category) => category._id !== categorySelectId),
       );
       setTimeout(() => {
         setIsSuccessfullySend(false);
@@ -46,7 +46,7 @@ export default function useCategoriesForms() {
 
     const info = {
       categoryNewName: e.target.categoryNewName.value.trim(),
-      categoryOldName: categoryFormerName.trim()
+      categoryOldName: categoryFormerName.trim(),
     };
     const onSuccess = (data) => {
       setIsRenameFormLoading(false);
@@ -54,8 +54,8 @@ export default function useCategoriesForms() {
         categories.map((category) =>
           category._id === categorySelectId
             ? { ...category, name: data.category.name }
-            : category
-        )
+            : category,
+        ),
       );
       setIsSuccessfullySend(true);
       setTimeout(() => {
@@ -96,8 +96,8 @@ export default function useCategoriesForms() {
     setIsCreateFormLoading(false);
   };
   const handleCategorySelect = (e) => {
-    setCategorySelectId(e.target.value.split('/')[0]);
-    setCategoryFormerName(e.target.value.split('/')[1]);
+    setCategorySelectId(e.target.value.split("/")[0]);
+    setCategoryFormerName(e.target.value.split("/")[1]);
     // console.log(e.target.value.split('/')[0]);
     // console.log(e.target.value.split('/')[1])
   };

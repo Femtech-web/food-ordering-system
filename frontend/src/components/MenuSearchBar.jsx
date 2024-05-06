@@ -48,7 +48,6 @@ const SearchIcon = styled.img`
   height: 100%;
 `;
 
-
 export default function SearchBar({ setSearch, placeholder, defaultValue }) {
   const resetFilter = (e) => {
     if (e.target.value === "") {

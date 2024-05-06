@@ -21,7 +21,7 @@ async function loginAPI({
     setIsFormLoading(true);
 
     const { json } = await POST(`${BASE_URL}/api/auth/login`, info);
-    console.log(json)
+    console.log(json);
 
     setIsFormLoading(false);
 
@@ -42,10 +42,10 @@ async function loginAPI({
 
         await usersAPI({ setAllUsers, token });
 
-        localStorage.setItem('foodieLoggedIn', JSON.stringify(true));
-        localStorage.setItem('foodie-current-user', JSON.stringify(user));
-        localStorage.setItem('foodie-token', JSON.stringify(token));
-        localStorage.setItem('foodie-admin', JSON.stringify(true));
+        localStorage.setItem("foodieLoggedIn", JSON.stringify(true));
+        localStorage.setItem("foodie-current-user", JSON.stringify(user));
+        localStorage.setItem("foodie-token", JSON.stringify(token));
+        localStorage.setItem("foodie-admin", JSON.stringify(true));
         setIsLoading(false);
 
         return navigate("/dashboard/orders");
@@ -53,17 +53,17 @@ async function loginAPI({
       if (roles[0].name === "moderator") {
         setIsModerator(true);
 
-        localStorage.setItem('foodieLoggedIn', JSON.stringify(true));
-        localStorage.setItem('foodie-current-user', JSON.stringify(user));
-        localStorage.setItem('foodie-token', JSON.stringify(token));
-        localStorage.setItem('foodie-moderator', JSON.stringify(true));
+        localStorage.setItem("foodieLoggedIn", JSON.stringify(true));
+        localStorage.setItem("foodie-current-user", JSON.stringify(user));
+        localStorage.setItem("foodie-token", JSON.stringify(token));
+        localStorage.setItem("foodie-moderator", JSON.stringify(true));
         setIsLoading(false);
         return navigate("/dashboard/myProducts");
       }
 
-      localStorage.setItem('foodieLoggedIn', JSON.stringify(true));
-      localStorage.setItem('foodie-current-user', JSON.stringify(user));
-      localStorage.setItem('foodie-token', JSON.stringify(token));
+      localStorage.setItem("foodieLoggedIn", JSON.stringify(true));
+      localStorage.setItem("foodie-current-user", JSON.stringify(user));
+      localStorage.setItem("foodie-token", JSON.stringify(token));
       setIsLoading(false);
       return navigate("/menu");
     }
@@ -73,9 +73,7 @@ async function loginAPI({
     console.log(err);
 
     setIsLoading(false);
-    setServerError(
-      "An error has occurred on the server. Please try again."
-    );
+    setServerError("An error has occurred on the server. Please try again.");
   }
 }
 export default loginAPI;

@@ -97,13 +97,9 @@ function MyProfile() {
             <dt>Email: </dt>
             <UserInfo>{currentUser.email}</UserInfo>
             <dt>Telephone: </dt>
-            <UserInfo>
-              {currentUser.number || "No number provided."}
-            </UserInfo>
+            <UserInfo>{currentUser.number || "No number provided."}</UserInfo>
             <dt>Address: </dt>
-            <UserInfo>
-              {currentUser.address || "No address provided."}
-            </UserInfo>
+            <UserInfo>{currentUser.address || "No address provided."}</UserInfo>
           </dl>
           <br />
           <LogoutButton onClick={handleLogout}>Logout</LogoutButton>

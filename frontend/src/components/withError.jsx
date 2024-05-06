@@ -1,74 +1,65 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React from "react";
 // import styles from './../index.css';
 
 export class ErrorComponent extends React.Component {
-    state = {
-        hasError: false,
-        message: '',
+  state = {
+    hasError: false,
+    message: "",
+  };
+
+  componentDidCatch(error) {
+    this.setState({
+      hasError: true,
+      message: error.message,
+    });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <div className="">{this.state.message}</div>;
     }
 
-    componentDidCatch(error) {
-        this.setState({
-            hasError: true,
-            message: error.message,
-        });
-    }
-
-    render() {
-        if (this.state.hasError) {
-            return (
-                <div className=''>
-                    {this.state.message}
-                </div>
-            );
-        }
-
-        return this.props.children;
-    }
+    return this.props.children;
+  }
 }
 
 export const withError = (Component) => {
-    class ErrorComponent extends React.Component {
-        state = {
-            hasError: false,
-            message: '',
-        }
+  class ErrorComponent extends React.Component {
+    state = {
+      hasError: false,
+      message: "",
+    };
 
-        componentDidCatch(error) {
-            this.setState({
-                hasError: true,
-                message: error.message,
-            });
-        }
-
-        retry = () => {
-            this.setState({
-                hasError: false,
-                message: '',
-            });
-        }
-
-        render() {
-        
-            if (this.state.hasError) {
-                return (
-                    <div className=''>
-                        {this.state.message}
-                        <button
-                            onClick={this.retry}
-                        >
-                            Retry
-                        </button>
-                    </div>
-                );
-            }
-
-            return <Component {...this.props} />;
-        }
+    componentDidCatch(error) {
+      this.setState({
+        hasError: true,
+        message: error.message,
+      });
     }
 
-    ErrorComponent.displayName = `withError(${Component.displayName || Component.name})`;
+    retry = () => {
+      this.setState({
+        hasError: false,
+        message: "",
+      });
+    };
 
-    return ErrorComponent;
+    render() {
+      if (this.state.hasError) {
+        return (
+          <div className="">
+            {this.state.message}
+            <button onClick={this.retry}>Retry</button>
+          </div>
+        );
+      }
+
+      return <Component {...this.props} />;
+    }
+  }
+
+  ErrorComponent.displayName = `withError(${Component.displayName || Component.name})`;
+
+  return ErrorComponent;
 };

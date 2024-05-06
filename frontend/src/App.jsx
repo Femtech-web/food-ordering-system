@@ -32,8 +32,8 @@ import DashboardUsers from "./components/dashboard/DashboardUsers";
 import DashboardEditProduct from "./components/dashboard/DashboardEditProduct";
 import DashboardProducts from "./components/dashboard/DashboardProducts";
 
-const EmailConfirmationModal = lazy(() =>
-  import("./components/auth/EmailConfirmationModal")
+const EmailConfirmationModal = lazy(
+  () => import("./components/auth/EmailConfirmationModal"),
 );
 const ResetPassword = lazy(() => import("./components/auth/ResetPassword"));
 
@@ -47,7 +47,7 @@ function App() {
     closeActualizationNotification,
     closeNewOrderNotification,
   } = useOrderNotification();
-  
+
   const {
     // setToken,
     // setIsNotLogin,
@@ -101,7 +101,6 @@ function App() {
         setIsLoading(false);
       } catch (err) {
         // getCategoriesAPI();
-
         // console.log(err);
       }
     };
@@ -144,87 +143,114 @@ function App() {
             <Route
               path="/authentication/confirmation"
               exact
-              element={<PublicRoute path="/authentication/confirmation">
-                <EmailConfirmationModal />
-              </PublicRoute>}
+              element={
+                <PublicRoute path="/authentication/confirmation">
+                  <EmailConfirmationModal />
+                </PublicRoute>
+              }
             />
-            <Route 
-              path="/myAccount/myProfile" 
-              element={<PublicRoute path="/myAccount/myProfile">
-                <MyProfile />
-              </PublicRoute>} 
+            <Route
+              path="/myAccount/myProfile"
+              element={
+                <PublicRoute path="/myAccount/myProfile">
+                  <MyProfile />
+                </PublicRoute>
+              }
             />
 
             <Route
               path="/myAccount/editProfile"
-              element={<PublicRoute path="/myAccount/editProfile">
-                <EditMyProfile />
-              </PublicRoute>}
+              element={
+                <PublicRoute path="/myAccount/editProfile">
+                  <EditMyProfile />
+                </PublicRoute>
+              }
             />
 
             <Route
               path="/myAccount/myOrders"
               exact
-              element={<PublicRoute path="/myAccount/myOrders">
-                <UserOrdersPage closeNotification={closeNewOrderNotification} />
-              </PublicRoute>}
+              element={
+                <PublicRoute path="/myAccount/myOrders">
+                  <UserOrdersPage
+                    closeNotification={closeNewOrderNotification}
+                  />
+                </PublicRoute>
+              }
             />
 
             <Route
               path="/myAccount/myOrders/:orderID"
-              element={<PublicRoute path="/myAccount/myOrders/:orderID">
-                <UserOrderDetailsPage />
-              </PublicRoute>}
+              element={
+                <PublicRoute path="/myAccount/myOrders/:orderID">
+                  <UserOrderDetailsPage />
+                </PublicRoute>
+              }
             />
 
             <Route
               path="/dashboard/myProducts"
-              element={<PrivateRoute path="/dashboard/myProducts">
-                <DashboardProducts />
-              </PrivateRoute>}
+              element={
+                <PrivateRoute path="/dashboard/myProducts">
+                  <DashboardProducts />
+                </PrivateRoute>
+              }
             />
             <Route
               path="/dashboard/newProduct"
-              element={<PrivateRoute path="/dashboard/newProduct">
-                <DashboardNewProduct />
-              </PrivateRoute>}
+              element={
+                <PrivateRoute path="/dashboard/newProduct">
+                  <DashboardNewProduct />
+                </PrivateRoute>
+              }
             />
             <Route
-              path="/dashboard/editProduct" 
-              element={<PrivateRoute  path="/dashboard/editProduct">
-                <DashboardEditProduct />
-              </PrivateRoute>}
+              path="/dashboard/editProduct"
+              element={
+                <PrivateRoute path="/dashboard/editProduct">
+                  <DashboardEditProduct />
+                </PrivateRoute>
+              }
             />
 
-            <Route 
-              path="/dashboard/users" 
-              element={<PrivateRoute path="/dashboard/users" >
-                <DashboardUsers />
-              </PrivateRoute>} 
+            <Route
+              path="/dashboard/users"
+              element={
+                <PrivateRoute path="/dashboard/users">
+                  <DashboardUsers />
+                </PrivateRoute>
+              }
             />
 
             <Route
               path="/dashboard/orders"
               exact
               element={
-               <PrivateRoute> <DashboardOrders path="/dashboard/orders"
-                  closeNotification={closeActualizationNotification}/>
-                </PrivateRoute>}
+                <PrivateRoute>
+                  {" "}
+                  <DashboardOrders
+                    path="/dashboard/orders"
+                    closeNotification={closeActualizationNotification}
+                  />
+                </PrivateRoute>
+              }
             />
 
             <Route
               path="/dashboard/orders/:orderID"
-              element={<PrivateRoute 
-              path="/dashboard/orders/:orderID">
-                <DashboardOrderDetails />
-              </PrivateRoute>}
+              element={
+                <PrivateRoute path="/dashboard/orders/:orderID">
+                  <DashboardOrderDetails />
+                </PrivateRoute>
+              }
             />
             <Route
               path="/dashboard/categories"
-              element={<PrivateRoute 
-              path="/dashboard/categories">
-                <DashboardCategories />
-              </PrivateRoute>}
+              element={
+                <PrivateRoute path="/dashboard/categories">
+                  <DashboardCategories />
+                </PrivateRoute>
+              }
             />
             <Route path="*" element={NotFound404Page} />
           </Routes>

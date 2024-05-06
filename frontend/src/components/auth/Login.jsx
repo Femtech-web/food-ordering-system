@@ -1,21 +1,22 @@
 /* eslint-disable react-refresh/only-export-components */
 
-import Auth from './Auth'
-import { withError } from '../withError'
-import LoginForm from './LoginForm'
-import ForgotPasswordModal from './ForgotPasswordModal'
-import {useState} from 'react' 
+import Auth from "./Auth";
+import { withError } from "../withError";
+import LoginForm from "./LoginForm";
+import ForgotPasswordModal from "./ForgotPasswordModal";
+import { useState } from "react";
 
-function Login(){
+function Login() {
+  const [isModalOpened, setIsModalOpened] = useState(false);
 
-const [isModalOpened,setIsModalOpened]=useState(false)
-
-  return(
-<Auth>
-  <LoginForm setIsModalOpened={setIsModalOpened} />
-  <ForgotPasswordModal   setIsModalOpened={setIsModalOpened}  isModalOpened={isModalOpened}
-  />
-</Auth>
-  )
+  return (
+    <Auth>
+      <LoginForm setIsModalOpened={setIsModalOpened} />
+      <ForgotPasswordModal
+        setIsModalOpened={setIsModalOpened}
+        isModalOpened={isModalOpened}
+      />
+    </Auth>
+  );
 }
-export default withError(Login)
+export default withError(Login);

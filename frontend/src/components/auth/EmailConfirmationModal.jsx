@@ -57,7 +57,8 @@ const MessageCard = styled.article`
   }
 `;
 export default function EmailConfirmationModal() {
-  const { isRequestLoading, sendConfirmationEmail } = useEmailConfirmationModal();
+  const { isRequestLoading, sendConfirmationEmail } =
+    useEmailConfirmationModal();
 
   return (
     <Page>
@@ -65,10 +66,10 @@ export default function EmailConfirmationModal() {
         <span>📬</span>
         <h4>Your account needs to be verified</h4>
         <p>
-        In order to manage your account on the application, 
-        it is necessary for you to verify your email. 
-        By pressing the button below, a message will be sent to 
-        your email with a verification link valid for 24 hours.
+          In order to manage your account on the application, it is necessary
+          for you to verify your email. By pressing the button below, a message
+          will be sent to your email with a verification link valid for 24
+          hours.
         </p>
         {isRequestLoading && <LoaderSpinner small />}
         <button onClick={() => sendConfirmationEmail()}>Send Email</button>

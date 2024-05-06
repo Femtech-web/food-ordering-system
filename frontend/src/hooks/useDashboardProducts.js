@@ -14,13 +14,13 @@ export default function useDashboardProducts() {
   const { categories, token, setProductToEdit } = useStorage();
 
   let populatedCategories = categories?.filter(
-    (category) => category?.quantity > 0
+    (category) => category?.quantity > 0,
   );
 
   let sizeLimit = 6;
 
   const [oldQuery, setOldQuery] = useState(
-    new URLSearchParams(location.search)
+    new URLSearchParams(location.search),
   );
   const [page, setPage] = useState(oldQuery.get("page") || 1);
   const [category, setCategory] = useState(oldQuery.get("category") || "all");
@@ -30,7 +30,7 @@ export default function useDashboardProducts() {
   const [maxPage, setMaxPage] = useState(1);
   const [products, setProducts] = useState(null);
   const [activeProducts, setActiveProducts] = useState(
-    oldQuery.get("active") || "all"
+    oldQuery.get("active") || "all",
   );
   const [isFirstRender, setIsFirstRender] = useState(true);
 

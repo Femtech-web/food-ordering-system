@@ -21,7 +21,11 @@ export default function useEditProfileForm() {
   const defaultsValues = {
     name: currentUser?.name?.split(" ")[0],
     lastName: currentUser?.name?.split(" ")[1],
-    street: currentUser?.address?.split(",")[0].split(" ").slice(0, -1).join(" "),
+    street: currentUser?.address
+      ?.split(",")[0]
+      .split(" ")
+      .slice(0, -1)
+      .join(" "),
     streetNumber: currentUser?.address?.split(",")[0].split(" ").splice(-1),
     number: currentUser?.number,
     city: currentUser?.address?.split(",")[1].trim(),

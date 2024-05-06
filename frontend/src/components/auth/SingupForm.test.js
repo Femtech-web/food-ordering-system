@@ -18,7 +18,7 @@ describe("form validations", () => {
           Promise.resolve({
             message: "sing up successfully",
           }),
-      })
+      }),
     );
   });
 
@@ -32,9 +32,9 @@ describe("form validations", () => {
         render(
           <MemoryRouter initialEntries={["/", "/authentication/singUp"]}>
             <SignupForm />
-          </MemoryRouter>
-        )
-      )
+          </MemoryRouter>,
+        ),
+      ),
   );
   it("renders all components correctly", () => {
     expect(screen.getAllByRole("textbox")).toHaveLength(3);
@@ -83,7 +83,7 @@ describe("form validations", () => {
         target: {
           value: "wrongemail@email",
         },
-      })
+      }),
     );
     await act(async () => fireEvent.blur(screen.getByTestId("emailInput")));
 
@@ -94,7 +94,7 @@ describe("form validations", () => {
         target: {
           value: "correctemailexample@gmail.com",
         },
-      })
+      }),
     );
 
     await act(async () => fireEvent.blur(screen.getByTestId("emailInput")));
@@ -108,7 +108,7 @@ describe("form validations", () => {
         target: {
           value: "lastName24",
         },
-      })
+      }),
     );
 
     await act(async () => fireEvent.blur(screen.getByTestId("lastNameInput")));
@@ -120,7 +120,7 @@ describe("form validations", () => {
         target: {
           value: "Díaz",
         },
-      })
+      }),
     );
 
     await act(async () => fireEvent.blur(screen.getByTestId("lastNameInput")));
@@ -134,7 +134,7 @@ describe("form validations", () => {
         target: {
           value: "brisa diaz",
         },
-      })
+      }),
     );
     await act(async () => fireEvent.blur(screen.getByTestId("nameInput")));
 
@@ -145,7 +145,7 @@ describe("form validations", () => {
         target: {
           value: "brisa  ",
         },
-      })
+      }),
     );
     await act(async () => fireEvent.blur(screen.getByTestId("nameInput")));
 
@@ -156,7 +156,7 @@ describe("form validations", () => {
         target: {
           value: "brisa",
         },
-      })
+      }),
     );
     await act(async () => fireEvent.blur(screen.getByTestId("nameInput")));
 
@@ -169,12 +169,12 @@ describe("form validations", () => {
         target: {
           value: "foo",
         },
-      })
+      }),
     );
     await act(async () => fireEvent.blur(screen.getByTestId("passwordInput")));
 
     expect(
-      screen.getByText("*El largo mínimo es de 5 carácteres")
+      screen.getByText("*El largo mínimo es de 5 carácteres"),
     ).toBeInTheDocument();
 
     await act(async () =>
@@ -182,12 +182,12 @@ describe("form validations", () => {
         target: {
           value: "longsecretpasword",
         },
-      })
+      }),
     );
     await act(async () => fireEvent.blur(screen.getByTestId("passwordInput")));
 
     expect(
-      screen.queryByText("*El largo mínimo es de 5 carácteres")
+      screen.queryByText("*El largo mínimo es de 5 carácteres"),
     ).not.toBeInTheDocument();
   });
 
@@ -197,7 +197,7 @@ describe("form validations", () => {
         target: {
           value: "brisa",
         },
-      })
+      }),
     );
 
     await act(async () => fireEvent.blur(screen.getByTestId("nameInput")));
@@ -209,7 +209,7 @@ describe("form validations", () => {
         target: {
           value: "Díaz",
         },
-      })
+      }),
     );
 
     await act(async () => fireEvent.blur(screen.getByTestId("lastNameInput")));
@@ -221,13 +221,13 @@ describe("form validations", () => {
         target: {
           value: "longsecretpasword",
         },
-      })
+      }),
     );
 
     await act(async () => fireEvent.blur(screen.getByTestId("passwordInput")));
 
     expect(screen.getByTestId("passwordInput")).toHaveValue(
-      "longsecretpasword"
+      "longsecretpasword",
     );
 
     await act(async () =>
@@ -235,13 +235,13 @@ describe("form validations", () => {
         target: {
           value: "correctemailexample@gmail.com",
         },
-      })
+      }),
     );
 
     await act(async () => fireEvent.blur(screen.getByTestId("emailInput")));
 
     expect(screen.getByTestId("emailInput")).toHaveValue(
-      "correctemailexample@gmail.com"
+      "correctemailexample@gmail.com",
     );
 
     await act(async () => fireEvent.submit(screen.getByTestId("singUpForm")));
@@ -266,7 +266,7 @@ describe("handle fetch exeptions", () => {
           Promise.resolve({
             message: "bad request",
           }),
-      })
+      }),
     );
   });
 
@@ -279,8 +279,8 @@ describe("handle fetch exeptions", () => {
       render(
         <MemoryRouter initialEntries={["/", "/authentication/singUp"]}>
           <SignupForm />
-        </MemoryRouter>
-      )
+        </MemoryRouter>,
+      ),
     );
     await act(async () => fireEvent.blur(screen.getByTestId("nameInput")));
 
@@ -289,7 +289,7 @@ describe("handle fetch exeptions", () => {
         target: {
           value: "Díaz",
         },
-      })
+      }),
     );
 
     await act(async () => fireEvent.blur(screen.getByTestId("lastNameInput")));
@@ -299,7 +299,7 @@ describe("handle fetch exeptions", () => {
         target: {
           value: "wrongUserPasword",
         },
-      })
+      }),
     );
 
     await act(async () => fireEvent.blur(screen.getByTestId("passwordInput")));
@@ -309,7 +309,7 @@ describe("handle fetch exeptions", () => {
         target: {
           value: "correctemailexample@gmail.com",
         },
-      })
+      }),
     );
 
     await act(async () => fireEvent.blur(screen.getByTestId("emailInput")));

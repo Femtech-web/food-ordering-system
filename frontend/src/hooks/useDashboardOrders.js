@@ -20,7 +20,7 @@ export default function useDashboardOrders({ closeNotification }) {
   let sizeLimit = 5;
 
   const [oldQuery, setOldQuery] = useState(
-    new URLSearchParams(location.search)
+    new URLSearchParams(location.search),
   );
   const [orderID, setOrderID] = useState("");
   const [isLoading, setIsLoadingPage] = useState(false);

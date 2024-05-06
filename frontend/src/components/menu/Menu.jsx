@@ -148,10 +148,7 @@ function Menu() {
         {isLoading && isFirstRender ? (
           <ProductsSectionSkeleton />
         ) : (
-          <ProductsSectionComponent 
-            isLoading={isLoading} 
-            products={products} 
-          />
+          <ProductsSectionComponent isLoading={isLoading} products={products} />
         )}
       </MenuWrapper>
 

@@ -14,7 +14,7 @@ async function postProductAPI({
       `${BASE_URL}/api/products`,
       formData,
       token,
-      "formData"
+      "formData",
     );
     setFormIsLoading(false);
 

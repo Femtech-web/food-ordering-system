@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from "../../img/People-Eating-and-Drinking-90673271.jpg";
+import background from "../../img/People-Eating-And-Drinking-90673271.jpg";
 import SectionTitle from "../SectionTitle";
 import watchIcon from "../../img/stopwatch-solid.svg";
 import burgerIcon from "../../img/hamburger-solid.svg";
@@ -38,7 +38,7 @@ const Image = styled.img`
   max-width: 400px;
   margin: 0 auto;
   object-fit: contain;
-  ${'' /* margin-top: 30px; */}
+  ${"" /* margin-top: 30px; */}
 `;
 const HistorySection = styled.div`
   text-align: center;
@@ -85,20 +85,20 @@ export default function About() {
         <HistorySection>
           <SectionTitle>About us</SectionTitle>
 
-          <p style={{lineHeight: "1.3rem"}}>
-            Welcome to Foodie! 
-            We&apos;re a passionate team dedicated to serving you the finest 
-            culinary experiences from the comfort of your home. 
-            Our mission is to make food discovery and delivery a seamless journey, 
-            offering a diverse range of restaurants and cuisines at your fingertips.
-            With a love for great food and technology, we&apos;ve crafted a platform that 
-            connects you with the flavors you crave. Our commitment to quality, convenience, 
-            and customer satisfaction drives us to ensure each order is a delightful experience.
-            Whether you&apos;re looking for a quick bite or a gourmet feast, our platform brings the 
-            best of local eateries right to your door. Explore, indulge, and savor every moment as 
-            we redefine the way you enjoy your favorite meals.
-            Join us in this culinary adventure and discover a world of taste with 
-            Foodie.
+          <p style={{ lineHeight: "1.3rem" }}>
+            Welcome to Foodie! We&apos;re a passionate team dedicated to serving
+            you the finest culinary experiences from the comfort of your home.
+            Our mission is to make food discovery and delivery a seamless
+            journey, offering a diverse range of restaurants and cuisines at
+            your fingertips. With a love for great food and technology,
+            we&apos;ve crafted a platform that connects you with the flavors you
+            crave. Our commitment to quality, convenience, and customer
+            satisfaction drives us to ensure each order is a delightful
+            experience. Whether you&apos;re looking for a quick bite or a
+            gourmet feast, our platform brings the best of local eateries right
+            to your door. Explore, indulge, and savor every moment as we
+            redefine the way you enjoy your favorite meals. Join us in this
+            culinary adventure and discover a world of taste with Foodie.
           </p>
           <Features>
             <div>

@@ -23,10 +23,12 @@ describe("ProductsSection render", () => {
         <MemoryRouter initialEntries={["/menu"]}>
           <ProductsSection isLoading={false} products={[]} />
         </MemoryRouter>
-      </CartContext.Provider>
+      </CartContext.Provider>,
     );
     expect(
-      screen.getByText("No se han encontrado coincidencias, intenta de nuevo!!")
+      screen.getByText(
+        "No se han encontrado coincidencias, intenta de nuevo!!",
+      ),
     ).toBeInTheDocument();
   });
 
@@ -42,13 +44,13 @@ describe("ProductsSection render", () => {
         <MemoryRouter initialEntries={["/menu"]}>
           <ProductsSection isLoading={false} products={products.data} />
         </MemoryRouter>
-      </CartContext.Provider>
+      </CartContext.Provider>,
     );
 
     expect(
       screen.queryByText(
-        "No se han encontrado coincidencias, intenta de nuevo!!"
-      )
+        "No se han encontrado coincidencias, intenta de nuevo!!",
+      ),
     ).not.toBeInTheDocument();
 
     expect(screen.getAllByRole("article")).toHaveLength(products.data.length);

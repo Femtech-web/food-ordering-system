@@ -106,7 +106,7 @@ function CellphoneInput({ register, errors, placeholder, defaultValue }) {
         name="userNumber"
         type="text"
         defaultValue={defaultValue || ""}
-        {...register("userNumber",{
+        {...register("userNumber", {
           required: "*This field is required",
           minLength: {
             value: 9,

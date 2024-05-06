@@ -130,7 +130,7 @@ function DashboardCategories() {
               onChange={(e) => handleCategorySelect(e)}
             >
               {categories?.map((cat) => (
-                <Option key={cat?._id} value={`${cat._id}/${cat.name}`} >
+                <Option key={cat?._id} value={`${cat._id}/${cat.name}`}>
                   {cat?.name}
                 </Option>
               ))}

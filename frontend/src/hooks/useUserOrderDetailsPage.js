@@ -1,78 +1,60 @@
-import {useParams,useNavigate} from 'react-router-dom'
-import {useEffect,useState} from 'react'
-import {useStorage} from '../context/useStorage'
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useStorage } from "../context/useStorage";
 
+export default function useUserOrderDetails() {
+  const { setIsLoading, token, isLoading } = useStorage();
 
+  let navigate = useNavigate();
+  let { orderID } = useParams();
 
-export default function useUserOrderDetails(){
+  const [thisOrder, setThisOrder] = useState({});
 
-    const {setIsLoading,token,isLoading} = useStorage()
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
 
-let navigate = useNavigate()
-let {orderID}=  useParams()
+    const fechOrder = async () => {
+      try {
+        const headers = new Headers();
+        headers.append("Accept", "application/json");
+        headers.append("Authorization", `Bearer ${token}`);
 
-
- const [thisOrder,setThisOrder] = useState({})
-
- useEffect(()=>{
-
-
-  const controller = new AbortController()
- const signal = controller.signal
-
-  const fechOrder= async () =>{
-  try{
-
-     const headers = new Headers();
-      headers.append('Accept', 'application/json');
-      headers.append('Authorization', `Bearer ${token}`);
-
-
-    const setting = {
-          method: 'GET',
+        const setting = {
+          method: "GET",
           headers: headers,
-signal,
+          signal,
+        };
+
+        let res = await fetch(`/api/orders/${orderID}`, setting);
+
+        if (res.status === 404) {
+          setIsLoading(false);
+          return navigate("/notFound");
         }
+        let json = await res.json();
 
-     let res = await fetch(`/api/orders/${orderID}`,setting)
+        setThisOrder(json.data);
 
-
-   if(res.status === 404) {
-        setIsLoading(false)
-      return navigate('/notFound')
-     }
-      let json = await res.json()
-
-    setThisOrder(json.data)
-
-     setIsLoading(false)
-
-  }catch(err){
-    if(err.name === 'AbortError'){
-   console.log('Fetch Canseled: caught abort')
- }else{
-
-     console.log(err)
-    for(let i = 0; i < 6 ;i++){
-    fechOrder()
-
+        setIsLoading(false);
+      } catch (err) {
+        if (err.name === "AbortError") {
+          console.log("Fetch Canseled: caught abort");
+        } else {
+          console.log(err);
+          for (let i = 0; i < 6; i++) {
+            fechOrder();
+          }
         }
+      }
+    };
 
-  }
-}
-  }
+    fechOrder();
 
-  fechOrder()
+    return () => {
+      controller.abort();
+    };
+  }, [orderID]);
 
-
-  return () =>{
-     controller.abort()
-   }
-
- },[orderID])
-
-
-
-return {thisOrder,isLoading}
-
+  return { thisOrder, isLoading };
 }

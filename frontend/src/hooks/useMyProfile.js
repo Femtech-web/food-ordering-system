@@ -3,8 +3,14 @@ import { useCartStorage } from "../context/cart_context/useCartStorage";
 import logoutAPI from "../API/logoutAPI";
 
 export default function useMyProfile() {
-  const { currentUser, setIsAdmin, setIsModerator, setToken, setIsNotLogin, setCurrentUser } =
-    useStorage();
+  const {
+    currentUser,
+    setIsAdmin,
+    setIsModerator,
+    setToken,
+    setIsNotLogin,
+    setCurrentUser,
+  } = useStorage();
   const { resetTotalCost, emptyCart } = useCartStorage();
   const onSuccess = () => {
     localStorage.clear();
@@ -18,7 +24,7 @@ export default function useMyProfile() {
   };
   const onError = () => {
     window.alert(
-      "I'm sorry, there was a server error and the session couldn't be closed."
+      "I'm sorry, there was a server error and the session couldn't be closed.",
     );
   };
   const handleLogout = async () => {
