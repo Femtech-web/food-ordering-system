@@ -52,21 +52,21 @@ export default function ForgotPassword() {
       <FormCard>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <h2>🔑</h2>
-          <h3>Establecer nueva contraseña</h3>
+          <h3>Set new password</h3>
           <UserPasswordInput
             register={register}
             errors={errors}
-            placeholder="Nueva contraseña..."
+            placeholder="New password..."
           />
           <UserPasswordInput
             register={register}
             errors={errors}
             name="confirmPassword"
-            placeholder="Confirnmar contraseña..."
+            placeholder="Confirm password..."
           />
           <ErrorServerMessage>{serverError}</ErrorServerMessage>
 
-          <ButtonPrimary as="input" type="submit" value="Enviar" />
+          <ButtonPrimary as="input" type="submit" value="send" />
           {isFormLoading && <LoaderSpinner small />}
         </Form>
       </FormCard>
