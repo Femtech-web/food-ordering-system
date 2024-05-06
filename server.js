@@ -21,7 +21,7 @@ async function initialSetup(){
   await connectIO(http);
 }
 
-await initialSetup();
+initialSetup();
 const port = process.env.PORT || 7000;
 
 http.listen(port, () => {
