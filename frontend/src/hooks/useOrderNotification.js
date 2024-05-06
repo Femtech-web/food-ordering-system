@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import { useStorage } from "../context/useStorage";
 
+const BASE_URL = import.meta.env.VITE_FETCH_BASE_URL;
+
 export default function useOrderNotification() {
   const [actualizationCount, setActualizationCount] = useState(0);
   const [orderActualizationMessage, setOrderActualizationMessage] =
@@ -17,15 +19,16 @@ export default function useOrderNotification() {
   };
   useEffect(() => {
     if (isLogin) {
-      const ENDPOINT = "http://localhost:7000";
+      const ENDPOINT = BASE_URL;
       const socket = io.connect(ENDPOINT);
+      console.log(currentUser)
       socket.auth = {
-        userId: currentUser._id,
-        userRole: currentUser.roles[0].name,
+        userId: currentUser?._id,
+        userRole: currentUser?.roles[0].name,
       };
 
       socket.on("connect", () => {
-        console.log("user conencted");
+        console.log("user connected");
         setSocket(socket);
       });
 
@@ -44,7 +47,7 @@ export default function useOrderNotification() {
         .find((state) => state.confirmed === true);
 
       setActualizationCount(setActualizationCount + 1);
-      setOrderActualizationMessage(`Pedido ${lastUpdateState.name}`);
+      setOrderActualizationMessage(`Order ${lastUpdateState.name}`);
     });
   }
 

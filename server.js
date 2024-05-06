@@ -12,13 +12,16 @@ const {
   createCategories,
 } = require("./src/libs/initialSetUp");
 
-connectDB();
-createRoles();
-createAdmin();
-createModerator();
-createCategories();
-connectIO(http);
+async function initialSetup(){
+  await connectDB();
+  await createRoles();
+  await createAdmin();
+  await createModerator();
+  await createCategories();
+  await connectIO(http);
+}
 
+await initialSetup();
 const port = process.env.PORT || 7000;
 
 http.listen(port, () => {
