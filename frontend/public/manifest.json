@@ -1,0 +1,14 @@
+{
+  "name": "Foodie",
+  "short_name": "Foodie",
+  "icons": [
+    {
+      "src": "/images/foodie.png",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "start_url": "https://foodie-livid.vercel.com/",
+  "display": "standalone"
+}
